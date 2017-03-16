@@ -17,9 +17,10 @@ body {
 
 input {
 	display: block;
+	padding: 5px;
 	margin: 10px auto;
-	border: 1px solid black;
-	width: 30%;
+	border: 1px solid #000;
+	width: 50%;
 }
 main {
   margin: 0 auto;
@@ -29,7 +30,7 @@ main {
 button[type="button"] {
 	display: inline-block;
 	margin: 0 auto;
-	width: 15%;
+	width: 25%;
 	font-family: 'Open Sans', sans-serif;
 	border-radius: 25px;
 	border-style: none;
@@ -46,4 +47,20 @@ header {
 h1 {
 	font-family: 'Open Sans:700', sans-serif;
 	color: #ED458B;
+}
+
+.display-last-guess {
+	margin: 0 auto;
+	font-size: 6em;
+	height: 200px;
+	width: 200px;
+	text-align: center;
+}
+
+.display-last-guess h2 {
+	margin: 0;
+}
+
+#reset-game {
+	width: 50%;
 }
