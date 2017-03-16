@@ -3,16 +3,47 @@
 }
 
 body {
-	background-color: green;
+	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
-	color: #FFFFFF;
+	color: #404041;
 }
 
-button {
+.colored-text {
+	color: #E6E7E8;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+input {
+	display: block;
+	margin: 10px auto;
+	border: 1px solid black;
+	width: 30%;
+}
+main {
+  margin: 0 auto;
+	/*width: 80%;*/
+}
+
+button[type="button"] {
+	display: inline-block;
+	margin: 0 auto;
+	width: 15%;
+	font-family: 'Open Sans', sans-serif;
+	border-radius: 25px;
+	border-style: none;
+	padding: 6px 15px;
 }
 
 header {
 	background-color: #404041;
+	height: auto;
+	font-weight: 700;
+	/*justify-content: center;*/
+}
+
+h1 {
+	font-family: 'Open Sans:700', sans-serif;
+	color: #ED458B;
 }
