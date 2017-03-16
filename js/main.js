@@ -6,3 +6,9 @@
 //place the guess in the "last guess" div
 //clear the input field and disable it.
 //
+ function generateRandomNumber() {
+	randomAnswer = Math.floor(Math.random()*100);
+	console.log(randomAnswer);
+ }
+
+generateRandomNumber();
