@@ -21,6 +21,16 @@
    }
  }
 
+function clearInputField() {
+  document.getElementById('user-guess').value = "";
+}
+
+
+function disableGuessButton() {
+  document.getElementById('submit-guess').setAttribute('disabled', 'true')
+}
+
+
 var submitButton = document.getElementById('submit-guess');
 
 //game loop, well named functions in the clicker
@@ -30,6 +40,8 @@ submitButton.addEventListener("click", function(){
   var guess = parseInt(number);
   //display last guess//clear input field
   //deactivate submit
+  clearInputField();
+  disableGuessButton();
   console.log(evaluateGuess(guess, answer));
 })
 
