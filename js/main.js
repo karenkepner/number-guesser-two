@@ -11,13 +11,17 @@
 	return Math.floor(Math.random()*100+1);
  }
 
+ //this will go inside the display last guess function
+ // document.querySelect('.display-last-guess');
+
  function evaluateGuess(guess, answer) {
-   if (guess === answer) {
-     return 'Boom! ' + answer;
-   } else if (guess > answer){
-     return 'Your guess was ' + guess + ' is too high. The answer is ' + answer;
+    if (guess === answer) {
+    // document.getElementById('feedback').innerHtml = "<h2 class="display-color">" + "Boom!" + "</h2>"
+    return 'Boom! ' + answer;
+    } else if (guess > answer){
+    return 'Your guess was ' + guess + ' is too high. The answer is ' + answer;
    } else {
-     return 'Your guess was ' + guess + ' is too low. The answer is ' + answer;
+    return 'Your guess was ' + guess + ' is too low. The answer is ' + answer;
    }
  }
 
@@ -32,6 +36,7 @@ function disableGuessButton() {
 
 
 var submitButton = document.getElementById('submit-guess');
+var clearButton = document.getElementById('clear-input-field');
 
 //game loop, well named functions in the clicker
 submitButton.addEventListener("click", function(){
@@ -40,9 +45,13 @@ submitButton.addEventListener("click", function(){
   var guess = parseInt(number);
   //display last guess//clear input field
   //deactivate submit
-  clearInputField();
   disableGuessButton();
   console.log(evaluateGuess(guess, answer));
+})
+
+
+clearButton.addEventListener('click', function() {
+  clearInputField();
 })
 
 //in the click!
