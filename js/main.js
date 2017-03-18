@@ -1,4 +1,7 @@
-// great javascript ideas
+var displayLastGuess = document.querySelector('.display-last-guess');
+var submitButton = document.getElementById('submit-guess');
+var clearButton = document.getElementById('clear-input-field');
+
 //x generate a random number between 1-100 as the answer
 //collect an input guess from the user from the input box
 //compare the guess to the answer
@@ -13,16 +16,16 @@
 
  //this will go inside the display last guess function
  // document.querySelect('.display-last-guess');
-var displayLastGuess = document.querySelector('.display-last-guess');
 
 
  function evaluateGuess(guess, answer) {
+   var feedback = document.getElementById('feedback');
     if (guess === answer) {
-     'Boom! You win!';
+    feedback.innerText = 'Boom! You win!';
     } else if (guess > answer){
-    return 'Your guess was ' + guess + ' is too high. The answer is ' + answer;
+    feedback.innerText = 'Your guess was too high.';
    } else {
-    return 'Your guess was ' + guess + ' is too low. The answer is ' + answer;
+    feedback.innerText = 'Your guess is too low.';
    }
  }
 
@@ -30,17 +33,16 @@ function clearInputField() {
   document.getElementById('user-guess').value = "";
 }
 
-
 function disableGuessButton() {
   document.getElementById('submit-guess').setAttribute('disabled', 'true')
 }
 
+function enableGuessButton() {
+  document.getElementById('submit-guess').setAttribute('disabled', 'false');
+}
 
-var submitButton = document.getElementById('submit-guess');
-var clearButton = document.getElementById('clear-input-field');
-
+enableGuessButton();
 //game loop, well named functions in the clicker
-submitButton.addEventListener("click", function(){
   var number = document.getElementById('user-guess').value;
   var answer = generateRandomNumber();
   var guess = parseInt(number);
@@ -48,7 +50,8 @@ submitButton.addEventListener("click", function(){
   //deactivate submit
   disableGuessButton();
   displayLastGuess.textContent = guess;
-  console.log(evaluateGuess(guess, answer));
+  evaluateGuess(guess, answer);
+  console.log(answer);
 })
 
 
