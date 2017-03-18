@@ -13,7 +13,7 @@
 
  //this will go inside the display last guess function
  // document.querySelect('.display-last-guess');
-displayLastGuess =
+var displayLastGuess = document.querySelector('.display-last-guess');
 
 
  function evaluateGuess(guess, answer) {
@@ -47,6 +47,7 @@ submitButton.addEventListener("click", function(){
   //display last guess//clear input field
   //deactivate submit
   disableGuessButton();
+  displayLastGuess.textContent = guess;
   console.log(evaluateGuess(guess, answer));
 })
 
