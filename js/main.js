@@ -13,11 +13,12 @@
 
  //this will go inside the display last guess function
  // document.querySelect('.display-last-guess');
+displayLastGuess =
+
 
  function evaluateGuess(guess, answer) {
     if (guess === answer) {
-    // document.getElementById('feedback').innerHtml = "<h2 class="display-color">" + "Boom!" + "</h2>"
-    return 'Boom! ' + answer;
+     'Boom! You win!';
     } else if (guess > answer){
     return 'Your guess was ' + guess + ' is too high. The answer is ' + answer;
    } else {

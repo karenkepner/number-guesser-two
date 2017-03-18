@@ -22,14 +22,10 @@ input {
 	border: 1px solid #000;
 	width: 50%;
 }
-main {
-  margin: 0 auto;
-	/*width: 80%;*/
-}
 
 button[type="button"] {
-	display: inline-block;
-	margin: 0 auto;
+	/*display: inline-block;*/
+	/*margin: 0 auto;*/
 	background-color: #929497;
 	width: 25%;
 	font-family: 'Open Sans', sans-serif;
@@ -41,10 +37,6 @@ button[type="button"] {
 
 button[type="button"]:hover {
 	background-color: #EB008B;
-}
-
-button[type="button"]:focus {
-/*find the "outline" on focus and cnange the radius...*/
 }
 
 button[type="button"]:disabled {
@@ -59,12 +51,16 @@ header {
 	background-color: #404041;
 	height: auto;
 	font-weight: 700;
-	/*justify-content: center;*/
 }
 
 h1 {
-	font-family: 'Open Sans:700', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
 	color: #ED458B;
+}
+
+h3 {
+	font-weight: 300;
 }
 
 .display-last-guess {
