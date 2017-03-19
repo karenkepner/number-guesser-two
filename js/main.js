@@ -19,6 +19,8 @@ var max = 100;
    var feedback = document.getElementById('feedback');
    if (guess === answer) {
     feedback.innerText = 'Boom! You win!'
+  } else if (typeof guess === "number"){
+    feedback.innerText = 'Guess a number between '+min+ ' and '+max+ '.';
     } else if (guess > answer){
     feedback.innerText = 'Your guess was too high.';
    } else {
@@ -44,11 +46,9 @@ userGuess.addEventListener('keyup', function() {
 submitButton.addEventListener('click', function() {
   var number = document.getElementById('user-guess').value;
   var guess = parseInt(number);
-  //deactivate submit
+  submitButton.disabled = true;
   displayLastGuess.textContent = guess;
   evaluateGuess(guess, answer);
-  // generateRandomNumber();
-  // disableGuessButton();
   console.log(answer);
 })
 
@@ -60,7 +60,6 @@ resetButton.addEventListener('click', function() {
 
 clearButton.addEventListener('click', function() {
   clearInputField();
-  // enableGuessButton();
 })
 
 //in the click!
