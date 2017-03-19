@@ -24,8 +24,6 @@ input {
 }
 
 button[type="button"] {
-	/*display: inline-block;*/
-	/*margin: 0 auto;*/
 	background-color: #929497;
 	width: 25%;
 	font-family: 'Open Sans', sans-serif;
