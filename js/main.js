@@ -3,25 +3,22 @@ var displayLastGuess = document.querySelector('.display-last-guess');
 var submitButton = document.getElementById('submit-guess');
 var clearButton = document.getElementById('clear-input-field');
 var resetButton = document.getElementById('reset-game');
-var max = 100;
 var min = 1;
+var max = 100;
 
 
- function generateRandomNumber() {
-	return Math.floor(Math.random()*100+1);
+ function generateRandomNumber(min, max) {
+  var min = Math.ceil(min);
+  var max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
  }
 
- var answer = generateRandomNumber();
-
- //this will go inside the display last guess function
- // document.querySelect('.display-last-guess');
-
+ var answer = generateRandomNumber(max,min);
 
  function evaluateGuess(guess, answer) {
    var feedback = document.getElementById('feedback');
    if (guess === answer) {
     feedback.innerText = 'Boom! You win!'
-    resetGame();
     } else if (guess > answer){
     feedback.innerText = 'Your guess was too high.';
    } else {
@@ -35,20 +32,12 @@ function clearInputField() {
 
 function resetGame() {
   clearInputField();
-  displayLastGuess.textContent = "!";
-}
-function disableGuessButton() {
-  document.getElementById('submit-guess').setAttribute('disabled', 'true');
-}
-
-function enableGuessButton() {
-  document.getElementById('submit-guess').setAttribute('disabled', 'false');
-  console.log("trying to enable guess button")
+  return answer = generateRandomNumber(max, min);
 }
 
 userGuess.addEventListener('keyup', function() {
-  enableGuessButton();
-  // enableClearButton();
+  submitButton.disabled = false;
+  clearButton.disabled = false;
 })
 
 //game loop, well named functions in the clicker
@@ -58,7 +47,8 @@ submitButton.addEventListener('click', function() {
   //deactivate submit
   displayLastGuess.textContent = guess;
   evaluateGuess(guess, answer);
-  disableGuessButton();
+  // generateRandomNumber();
+  // disableGuessButton();
   console.log(answer);
 })
 
@@ -70,7 +60,7 @@ resetButton.addEventListener('click', function() {
 
 clearButton.addEventListener('click', function() {
   clearInputField();
-  enableGuessButton();
+  // enableGuessButton();
 })
 
 //in the click!
