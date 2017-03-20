@@ -1,11 +1,8 @@
-var userGuess = document.getElementById('user-guess');
-var displayLastGuess = document.querySelector('.display-last-guess');
 var submitButton = document.getElementById('submit-guess');
 var clearButton = document.getElementById('clear-input-field');
 var resetButton = document.getElementById('reset-game');
 var min = 1;
 var max = 100;
-var range = document.querySelector('.number-range');
 
  function generateRandomNumber(min, max) {
   var min = Math.ceil(min);
@@ -21,7 +18,6 @@ var range = document.querySelector('.number-range');
     feedback.innerText = 'Boom! You win!'
     min = min - 10;
     max = max + 10;
-    console.log('value of ' + max);
     } else if (guess == NaN ) {
     feedback.innerText = 'Please enter a number.';
     } else if (guess > max || guess < min){
@@ -44,11 +40,9 @@ function resetGame() {
   return answer = generateRandomNumber(min, max);
 }
 
-userGuess.addEventListener('keyup', function() {
+document.getElementById('user-guess').addEventListener('keyup', function() {
   submitButton.disabled = false;
-  submitButton.classList.remove('disabled-background');
   clearButton.disabled = false;
-  // clearButton.classList.remove('disabled-background');
 })
 
 //game loop, well named functions in the clicker
@@ -56,35 +50,24 @@ submitButton.addEventListener('click', function() {
   var number = document.getElementById('user-guess').value;
   var guess = parseInt(number);
   submitButton.disabled = true;
-  submitButton.className = "disabled-background";
-  clearButton.className = "disabled-background";
-
-  displayLastGuess.textContent = guess;
+  resetButton.disabled = false;
+  document.querySelector('.display-last-guess').textContent = guess;
   evaluateGuess(guess, answer);
-  console.log(answer);
+  console.log(answer); //delete this for final review
 })
 
 resetButton.addEventListener('click', function() {
   resetGame();
-  displayLastGuess.textContent = "?";
+  document.querySelector('.display-last-guess').textContent = "?";
   feedback.textContent = "You are awesome!";
-  range.innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
 })
 
 clearButton.addEventListener('click', function() {
   clearInputField();
+  clearButton.disabled = true;
 })
 
 window.onload = function() {
-  range.innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
 }
-//in the click!
-// generateRandomNumber()
-// get guesscomapare guess()
-// clear field()
-
-
-//junk pile
-// debugger;
-// event.preventDefault();
-// console.log(guess.innerText);
