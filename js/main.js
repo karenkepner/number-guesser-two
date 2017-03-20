@@ -75,8 +75,9 @@ clearButton.addEventListener('click', function() {
   clearInputField();
 })
 
-document.addEventListener('onload', function() {
-})
+window.onload = function() {
+  range.innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+}
 //in the click!
 // generateRandomNumber()
 // get guesscomapare guess()
