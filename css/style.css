@@ -27,6 +27,7 @@ button[type="button"] {
 	background-color: #929497;
 	width: 25%;
 	font-family: 'Open Sans', sans-serif;
+	color: #FFF;
 	border-radius: 25px;
 	border-style: none;
 	padding: 6px 15px;
@@ -37,9 +38,9 @@ button[type="button"]:hover {
 	background-color: #EB008B;
 }
 
-/*.disabled {
-	background-color: #D0D2D3;
-}*/
+button.disabled-background {
+	background-color:	#D0D2D3;
+}
 
 .display-color {
 	color: #EB008B;
@@ -63,7 +64,7 @@ h3 {
 
 .display-last-guess {
 	margin: 0 auto;
-	font-size: 9em;
+	font-size: 150px;
 	height: 200px;
 	width: 200px;
 	text-align: center;
