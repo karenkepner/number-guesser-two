@@ -17,6 +17,7 @@ body {
 
 input#user-guess {
 	display: block;
+	box-sizing: border-box;
 	padding: 5px;
 	margin: 10px auto;
 	border: 1px solid #000;
@@ -35,7 +36,7 @@ input#user-guess:hover,
 input#user-guess:focus,
 input:hover,
 input:focus {
-	border: 2px solid #EB008B;
+	border: 1px solid #EB008B;
 }
 
 button[type="button"] {

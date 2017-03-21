@@ -1,6 +1,7 @@
 var submitButton = document.getElementById('submit-guess');
 var clearButton = document.getElementById('clear-input-field');
 var resetButton = document.getElementById('reset-game');
+var newRange = document.getElementById('new-range');
 var min = 1;
 var max = 100;
 
@@ -18,6 +19,7 @@ var max = 100;
     feedback.innerText = 'Boom! You win!'
     min = min - 10;
     max = max + 10;
+    newRange.disabled = false;
     } else if (guess == NaN ) {
     feedback.innerText = 'Please enter a number.';
     } else if (guess > max || guess < min){
@@ -33,6 +35,8 @@ var max = 100;
 
 function clearInputField() {
   document.getElementById('user-guess').value = "";
+  document.getElementById('new-min').value = "";
+  document.getElementById('new-max').value = "";
 }
 
 function resetGame() {
@@ -45,7 +49,6 @@ document.getElementById('user-guess').addEventListener('keyup', function() {
   clearButton.disabled = false;
 })
 
-//game loop, well named functions in the clicker
 submitButton.addEventListener('click', function() {
   var number = document.getElementById('user-guess').value;
   var guess = parseInt(number);
@@ -71,3 +74,13 @@ clearButton.addEventListener('click', function() {
 window.onload = function() {
   document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
 }
+
+newRange.addEventListener('click', function() {
+  var newMin = document.getElementById('new-min').value;
+  min = parseInt(newMin)
+  var newMax = document.getElementById('new-max').value;
+  max = parseInt(newMax)
+  clearInputField();
+  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+  return min, max;
+})
