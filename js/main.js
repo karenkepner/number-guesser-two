@@ -84,3 +84,5 @@ newRange.addEventListener('click', function() {
   document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
   return min, max;
 })
+
+module.exports = generateRandomNumber;
