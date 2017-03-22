@@ -113,11 +113,15 @@ h3 {
 }
 .score-box {
 	color: #ED458B;
+	font-weight: 700;
+	border: 1px solid #ED458B;
+	border-radius: 5px;
+	width: 25%;
+	margin: 10px auto;
+	padding: 5px;
 }
 .player-score {
 	display: inline-block;
-	width: 15%;
-	border: 1px solid #000;
 }
 
 @media (max-width: 500px) {

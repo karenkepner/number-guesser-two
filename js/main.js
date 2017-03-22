@@ -1,9 +1,12 @@
+var userGuess = document.getElementById('user-guess');
 var submitButton = document.getElementById('submit-guess');
 var clearButton = document.getElementById('clear-input-field');
 var resetButton = document.getElementById('reset-game');
 var newRange = document.getElementById('new-range');
 var min = 1;
 var max = 100;
+var player1score = 0;
+var guesses = 0;
 
 function generateRandomNumber(min, max) {
   var min = Math.ceil(min);
@@ -19,6 +22,7 @@ function evaluateGuess(guess, answer) {
     feedback.innerText = 'Boom! You win!'
     min -= 10;
     max += 10;
+    guesses = 0;
     newRange.disabled = false;
   } else if (guess == NaN ) {
     feedback.innerText = 'Please enter a number.';
@@ -44,14 +48,35 @@ function resetGame() {
   answer = generateRandomNumber(min, max);
 }
 
-document.getElementById('user-guess').addEventListener('keyup', function() {
+// function playerScore() {
+//   var score = document.querySelector('.player-score');
+//   if (guesses === 1 {
+//     score.innerText = 30;
+//   } else if (guesses >= 2 && guesses <= 5) {
+//     score.innerText = 20;
+//   } else if (guesses >=6 && guesses <= 8) {
+//     score.innerText = 10;
+//   } else if (guesses >= 10 && guesses <= 15) {
+//     score.innerText = 5;
+//   } else if (guesses > 16) {
+//     score.innerText = 1;
+//   }
+//
+// }
+
+userGuess.addEventListener('input', function() {
+  if (userGuess.value === "") {
+    clearButton.disabled = true;
+    } else {
+    clearButton.disabled = false;
+    }
   submitButton.disabled = false;
-  clearButton.disabled = false;
 })
 
 submitButton.addEventListener('click', function() {
   var number = document.getElementById('user-guess').value;
   var guess = parseInt(number);
+  guesses++
   submitButton.disabled = true;
   resetButton.disabled = false;
   document.querySelector('.display-last-guess').textContent = guess;
