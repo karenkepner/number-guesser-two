@@ -56,7 +56,7 @@ submitButton.addEventListener('click', function() {
   resetButton.disabled = false;
   document.querySelector('.display-last-guess').textContent = guess;
   evaluateGuess(guess, answer);
-  console.log(answer,'submit button'); //delete this for final review
+  console.log(answer); //delete this for final review
 })
 
 resetButton.addEventListener('click', function() {
