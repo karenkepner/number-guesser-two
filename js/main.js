@@ -1,3 +1,4 @@
+var userGuess = document.getElementById('user-guess');
 var submitButton = document.getElementById('submit-guess');
 var clearButton = document.getElementById('clear-input-field');
 var resetButton = document.getElementById('reset-game');
@@ -44,9 +45,13 @@ function resetGame() {
   answer = generateRandomNumber(min, max);
 }
 
-document.getElementById('user-guess').addEventListener('keyup', function() {
+userGuess.addEventListener('input', function() {
+  if (userGuess.value === "") {
+    clearButton.disabled = true;
+    } else {
+    clearButton.disabled = false;
+    }
   submitButton.disabled = false;
-  clearButton.disabled = false;
 })
 
 submitButton.addEventListener('click', function() {
