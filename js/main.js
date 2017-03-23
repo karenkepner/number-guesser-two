@@ -51,17 +51,16 @@ function resetGame() {
 function playerScore() {
   var score = document.querySelector('.player-score');
   if (guesses === 1 {
-    score.innerText = 30;
+    score.value = 3000;
   } else if (guesses >= 2 && guesses <= 5) {
-    score.innerText = 20;
+    score.value = 20;
   } else if (guesses >=6 && guesses <= 8) {
-    score.innerText = 10;
+    score.value = 10;
   } else if (guesses >= 10 && guesses <= 15) {
-    score.innerText = 5;
+    score.value = 5;
   } else if (guesses > 16) {
-    score.innerText = 1;
+    score.value = 1;
   }
-
 }
 
 userGuess.addEventListener('input', function() {
