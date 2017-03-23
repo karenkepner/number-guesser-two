@@ -5,6 +5,7 @@ var resetButton = document.getElementById('reset-game');
 var newRange = document.getElementById('new-range');
 var min = 1;
 var max = 100;
+var answer = generateRandomNumber(min,max);
 
 function generateRandomNumber(min, max) {
   var min = Math.ceil(min);
@@ -12,7 +13,6 @@ function generateRandomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var answer = generateRandomNumber(max,min);
 
 function evaluateGuess(guess, answer) {
   var feedback = document.getElementById('feedback');
@@ -45,6 +45,10 @@ function resetGame() {
   answer = generateRandomNumber(min, max);
 }
 
+function postNumberRange() {
+  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+}
+
 userGuess.addEventListener('input', function() {
   if (userGuess.value === "") {
     clearButton.disabled = true;
@@ -68,7 +72,7 @@ resetButton.addEventListener('click', function() {
   resetGame();
   document.querySelector('.display-last-guess').textContent = "?";
   feedback.textContent = "You are awesome!";
-  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+  postNumberRange();
 })
 
 clearButton.addEventListener('click', function() {
@@ -77,7 +81,7 @@ clearButton.addEventListener('click', function() {
 });
 
 (function() {
-  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+  postNumberRange();
 })();
 
 newRange.addEventListener('click', function() {
@@ -86,6 +90,6 @@ newRange.addEventListener('click', function() {
   var newMax = document.getElementById('new-max').value;
   max = parseInt(newMax)
   clearInputField();
-  document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
+  postNumberRange();
   return min, max;
 })
