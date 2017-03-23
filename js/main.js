@@ -95,5 +95,6 @@ newRange.addEventListener('click', function() {
   }
   clearInputField();
   postNumberRange();
+  resetGame();
   return min, max;
 })
