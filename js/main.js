@@ -89,7 +89,6 @@ newRange.addEventListener('click', function() {
   min = parseInt(newMin)
   var newMax = document.getElementById('new-max').value;
   max = parseInt(newMax)
-  console.log("new max"+newMax);
   if (newMin === "" || newMax === "") {
     return feedback.textContent = "Please enter a number."
   }
