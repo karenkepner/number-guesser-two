@@ -22,6 +22,7 @@ function evaluateGuess(guess, answer) {
     feedback.innerText = 'Boom! You win!'
     min -= 10;
     max += 10;
+    playerScore();
     guesses = 0;
     newRange.disabled = false;
   } else if (guess == NaN ) {
@@ -52,20 +53,20 @@ function postNumberRange(){
   document.querySelector('.number-range').innerText = 'Guess a number between ' +min+ ' and ' +max+ '.';
 }
 
-function playerScore(guesses) {
-  var score = document.querySelector('.player-score');
+function playerScore() {
+  // score = document.querySelector('.player-score');
   if(guesses === 1) {
-      score += 3000;
+      player1score += 3000;
     } else if (guesses >= 2 && guesses <= 5) {
-      score += 20;
+      player1score += 20;
     } else if (guesses >=6 && guesses <= 8) {
-      score += 10;
+      player1score += 10;
     } else if (guesses >= 10 && guesses <= 15) {
-      score += 5;
+      player1score += 5;
     } else if (guesses > 16) {
-      score += 1;
+      player1score += 1;
   }
-  document.querySelector('.player-score').value = score;
+  document.querySelector('.player-score').innerText = player1score;
 }
 
 userGuess.addEventListener('input', function() {
@@ -81,7 +82,6 @@ submitButton.addEventListener('click', function() {
   var number = document.getElementById('user-guess').value;
   var guess = parseInt(number);
   guesses++
-  playerScore(guesses);
   console.log('guesses ' +guesses);
   submitButton.disabled = true;
   resetButton.disabled = false;
